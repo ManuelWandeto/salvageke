@@ -1,0 +1,39 @@
+.nav ul {
+  list-style: none;
+  padding: 10px 10px;
+  margin: 0;
+  color: white;
+}
+
+.nav_link {
+  width: 100%;
+  display: inline-block;
+  background: linear-gradient(
+    to bottom,
+    #b30f13 0%,
+    #ed1c24 100%
+  );
+  text-transform: uppercase;
+  font-size: 21px;
+  font-weight: bold;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  border-bottom-color: rgba(255, 255, 255, 0.55);
+  border-right-color: rgba(255, 255, 255, 0.55);
+}
+.icon {
+  margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .nav_link {
+    font-size: 12px;
+    padding: 6px 6.5px 5px 6.5px;
+    margin: 7px 3px;
+  }
+  .nav {
+    margin: 0 auto;
+    width: 740px;
+  }
+}

@@ -1,0 +1,55 @@
+{
+    "auctions": {
+        "cars": [
+            {
+                "title": "2008 Nissan GT-R 3799cc Petrol Automatic 2 Door Coupe",
+                "id": 1,
+                "price": 2786095,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/5/2007/10/112_0712_08z-nissan_gt_r_x-front_view.jpg?fit=around%7C770:481.25"
+                ]
+            },
+            {
+                "title": "2013 BMW X1 SDrive20d SE (2WD) 1995cc Turbo Diesel Automatic 6 Speed 5 Door 4x4",
+                "id": 2,
+                "price": 350794,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/10/2017/11/2013-bmw-x1-xdrive-28i-hatchback-angular-front.png?fit=around%7C875:492.1875"
+                ]
+            },
+            {
+                "title": "2014 Mercedes-Benz E Class E220 AMG Sport CDi 2143cc Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "id": 3,
+                "price": 457445,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/10/2015/11/2014-mercedes-benz-e-class-350-sport-sedan-angular-front.png?fit=around%7C875:492.1875"
+                ]
+            },
+            {
+                "title": "2013 Audi A4 2143cc Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "id": 4,
+                "price": 457445,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/10/2015/11/2011-audi-a4-2.0-t-quattro-tiptronic-premium-sedan-angular-front.png?fit=around%7C875:492.1875"
+                ]
+            },
+            {
+                "title": "Mazda cx-5 Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "id": 5,
+                "price": 4150421,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/10/2015/09/2015-Mazda-CX-5-front-three-quarter-view-1.jpg?fit=around%7C875:492.1875"
+                ]
+            },
+            {
+                "title": "Nissan frontier Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "id": 6,
+                "price": 4150421,
+                "images": [
+                    "https://www.motortrend.com/uploads/sites/10/2015/11/2012-nissan-frontier-4.0-sv-king-cab-4x2-mt-truck-angular-front.png?fit=around%7C875:492.1875"
+                ]
+            }
+            
+        ]
+    }
+}
