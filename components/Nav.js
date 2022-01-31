@@ -1,4 +1,3 @@
-import MenuItem from "./MenuItem";
 import { FaHome } from "react-icons/fa";
 import { FaCar } from "react-icons/fa";
 import { FaGavel } from "react-icons/fa";
