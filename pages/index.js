@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Header></Header>
       <section className={styles.content}>
-        <Container>
+        <Container fluid="md">
           <div className="col-sm-12">
             <div className="row">
               <h1 className={styles.h1}>
