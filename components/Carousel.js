@@ -16,15 +16,6 @@ const AuctionCarousel = () => {
   }, []);
 
   const paginate = (dataArr, pageSize) => {
-    /* 
-    take an array of any size and required pageSize
-    return an array of objects each with; 
-    given pageSize, items on each page and number of pages.
-
-    original -> [1,2,3,4,5,5,6,7,8,9,10] 
-    paginate(original, 4)
-    returned -> [{page: 1, items: [1,2,3,4], totalPages: 2}]
-  */
     let startNumber = 0;
     let endNumber = pageSize;
     let pages = [];
