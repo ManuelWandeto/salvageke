@@ -2,53 +2,110 @@
     "auctions": {
         "cars": [
             {
-                "title": "2008 Nissan GT-R 3799cc Petrol Automatic 2 Door Coupe",
+                "title": "2015 BMW x5",
                 "id": 1,
                 "price": 2786095,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/5/2007/10/112_0712_08z-nissan_gt_r_x-front_view.jpg?fit=around%7C770:481.25"
+                    "https://images.hgmsites.net/med/2015-bmw-x5-awd-4-door-xdrive35d-angular-front-exterior-view_100569033_m.jpg"
                 ]
             },
             {
-                "title": "2013 BMW X1 SDrive20d SE (2WD) 1995cc Turbo Diesel Automatic 6 Speed 5 Door 4x4",
+                "title": "2014 Chrysler 300",
                 "id": 2,
-                "price": 350794,
+                "price": 3230600,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/10/2017/11/2013-bmw-x1-xdrive-28i-hatchback-angular-front.png?fit=around%7C875:492.1875"
+                    "https://images.hgmsites.net/med/2014-chrysler-300-4-door-sedan-awd-angular-front-exterior-view_100444122_m.jpg"
                 ]
             },
             {
-                "title": "2014 Mercedes-Benz E Class E220 AMG Sport CDi 2143cc Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "title": "2012 Mercedes-Benz C Class",
                 "id": 3,
-                "price": 457445,
+                "price": 4228192,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/10/2015/11/2014-mercedes-benz-e-class-350-sport-sedan-angular-front.png?fit=around%7C875:492.1875"
+                    "https://images.hgmsites.net/med/2012-mercedes-benz-c-class-4-door-sedan-c250-sport-rwd-angular-front-exterior-view_100424468_m.jpg"
                 ]
             },
             {
-                "title": "2013 Audi A4 2143cc Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "title": "2014 Mercedes-Benz E Class",
                 "id": 4,
-                "price": 457445,
+                "price": 3450500,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/10/2015/11/2011-audi-a4-2.0-t-quattro-tiptronic-premium-sedan-angular-front.png?fit=around%7C875:492.1875"
+                    "https://images.hgmsites.net/med/2014-mercedes-benz-e-class-4-door-wagon-e350-sport-4matic-angular-front-exterior-view_100432862_m.jpg"
                 ]
             },
             {
-                "title": "Mazda cx-5 Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "title": "2015 Nissan Frontier",
                 "id": 5,
-                "price": 4150421,
+                "price": 3900300,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/10/2015/09/2015-Mazda-CX-5-front-three-quarter-view-1.jpg?fit=around%7C875:492.1875"
+                    "https://images.hgmsites.net/med/2015-nissan-frontier-2wd-king-cab-i4-auto-sv-angular-front-exterior-view_100504165_m.jpg"
                 ]
             },
             {
-                "title": "Nissan frontier Turbo Diesel Automatic 7 Speed 2 Door Coupe",
+                "title": "2010 GMC Canyon",
                 "id": 6,
-                "price": 4150421,
+                "price": 1340855,
                 "images": [
-                    "https://www.motortrend.com/uploads/sites/10/2015/11/2012-nissan-frontier-4.0-sv-king-cab-4x2-mt-truck-angular-front.png?fit=around%7C875:492.1875"
+                    "https://images.hgmsites.net/med/2010-gmc-canyon-2wd-ext-cab-125-9-sle1-angular-front-exterior-view_100253021_m.jpg"
+                ]
+            },
+            {
+                "title": "2008 Ford Ranger",
+                "id": 7,
+                "price": 1295350,
+                "images": [
+                    "https://images.hgmsites.net/med/2008-ford-ranger-2wd-2dr-supercab-126-brown_100055744_m.jpg"
+                ]
+            },
+            {
+                "title": "2014 Ford Mustang",
+                "id": 8,
+                "price": 4100320,
+                "images": [
+                    "https://images.hgmsites.net/med/2014-ford-mustang-2-door-coupe-gt-premium-angular-front-exterior-view_100418495_m.jpg"
+                ]
+            },
+            {
+                "title": "2016 Toyota Corolla",
+                "id": 9,
+                "price": 1800430,
+                "images": [
+                    "https://images.hgmsites.net/med/2016-toyota-corolla-4-door-sedan-cvt-le-eco-natl-angular-front-exterior-view_100535747_m.jpg"
+                ]
+            },
+            {
+                "title": "2015 Subaru Outback",
+                "id": 9,
+                "price": 2600500,
+                "images": [
+                    "https://images.hgmsites.net/med/2015-subaru-outback-4-door-wagon-h4-auto-2-5i-angular-front-exterior-view_100501193_m.jpg"
+                ]
+            },
+            {
+                "title": "2016 Toyota Land Cruiser",
+                "id": 10,
+                "price": 5400268,
+                "images": [
+                    "https://images.hgmsites.net/med/2016-toyota-land-cruiser-4-door-4wd-natl-angular-front-exterior-view_100570394_m.jpg"
+                ]
+            },
+            {
+                "title": "2012 Land Rover Range Rover",
+                "id": 11,
+                "price": 3565730,
+                "images": [
+                    "https://images.hgmsites.net/med/2012-land-rover-range-rover-4wd-4-door-hse-angular-front-exterior-view_100393763_m.jpg"
+                ]
+            },
+            {
+                "title": "2014 Subaru Forester",
+                "id": 12,
+                "price": 2840690,
+                "images": [
+                    "https://images.hgmsites.net/med/2014-subaru-forester-4-door-auto-2-5i-premium-pzev-angular-front-exterior-view_100428636_m.jpg"
                 ]
             }
+            
             
         ]
     }
