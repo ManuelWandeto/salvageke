@@ -10,7 +10,7 @@ const Card = ({ car }) => {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   return (
-    <div className="card">
+    <div className="card mb-3">
       <div
         title={car.title}
         className={`card-img-top ${styles.image}`}
