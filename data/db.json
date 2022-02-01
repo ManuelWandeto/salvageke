@@ -75,7 +75,7 @@
             },
             {
                 "title": "2015 Subaru Outback",
-                "id": 9,
+                "id": 10,
                 "price": 2600500,
                 "images": [
                     "https://images.hgmsites.net/med/2015-subaru-outback-4-door-wagon-h4-auto-2-5i-angular-front-exterior-view_100501193_m.jpg"
@@ -83,7 +83,7 @@
             },
             {
                 "title": "2016 Toyota Land Cruiser",
-                "id": 10,
+                "id": 11,
                 "price": 5400268,
                 "images": [
                     "https://images.hgmsites.net/med/2016-toyota-land-cruiser-4-door-4wd-natl-angular-front-exterior-view_100570394_m.jpg"
@@ -91,18 +91,10 @@
             },
             {
                 "title": "2012 Land Rover Range Rover",
-                "id": 11,
+                "id": 12,
                 "price": 3565730,
                 "images": [
                     "https://images.hgmsites.net/med/2012-land-rover-range-rover-4wd-4-door-hse-angular-front-exterior-view_100393763_m.jpg"
-                ]
-            },
-            {
-                "title": "2014 Subaru Forester",
-                "id": 12,
-                "price": 2840690,
-                "images": [
-                    "https://images.hgmsites.net/med/2014-subaru-forester-4-door-auto-2-5i-premium-pzev-angular-front-exterior-view_100428636_m.jpg"
                 ]
             }
             
