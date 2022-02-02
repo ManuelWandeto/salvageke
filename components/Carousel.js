@@ -27,7 +27,6 @@ const AuctionCarousel = () => {
       });
       startNumber = endNumber;
       endNumber += pageSize;
-      console.log(`run ${i} time`);
     }
     return {
       totalPages,
@@ -38,9 +37,11 @@ const AuctionCarousel = () => {
     <Carousel className="carousel-dark">
       {repo.map((page) => (
         <Carousel.Item key={page.pageNumber}>
-          {page.items.map((car) => (
-            <Card car={car} key={car.id} />
-          ))}
+          <div className="row">
+            {page.items.map((car) => (
+              <Card car={car} key={car.id} />
+            ))}
+          </div>
         </Carousel.Item>
       ))}
     </Carousel>
