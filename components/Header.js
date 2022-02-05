@@ -21,6 +21,7 @@ const Header = () => {
       className={`${styles.header} d-block`}
       collapseOnSelect
       fixed="top"
+      expanded={expanded}
       onToggle={(expanded) => setExpanded(expanded)}
     >
       <Container className="d-none d-md-block my-3 px-2">
@@ -68,7 +69,7 @@ const Header = () => {
         </div>
       </Container>
       <Navbar.Collapse className={styles.collapse}>
-        <Nav></Nav>
+        <Nav selectHandler={() => setExpanded(false)}></Nav>
       </Navbar.Collapse>
     </Navbar>
   );
