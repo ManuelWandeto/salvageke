@@ -24,6 +24,32 @@ a {
   border: 1px solid #e3e3e3;
   border-radius: 5px;
 }
+
+.content {
+  padding-top: 115px;
+}
+
+h1 {
+  font-size: 18px;
+  color: #e72727;
+  margin-top: 18px;
+  margin-bottom: 9px;
+}
+strong {
+  color: #444;
+  font-size: 115%;
+}
+.list-group-text-item {
+  color: #000;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-top: 193px;
+  }
+}
+
 /* Shared styles */
 /* Flag styles */
 .fi {
@@ -44,6 +70,18 @@ a {
 /* Flag styles */
 
 /* Bootstrap overrides */
+.list-group-item {
+  background-color: inherit;
+}
+.card-img-top {
+  background-size: 90%;
+  background-position: center center;
+  padding-bottom: 56%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
 div .navbar-dark .navbar-toggler {
   border: 2px solid #e0e5ea;
   padding: 15px 10px;
