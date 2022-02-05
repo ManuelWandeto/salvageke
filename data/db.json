@@ -7,7 +7,13 @@
                 "price": 2786095,
                 "images": [
                     "https://images.hgmsites.net/med/2015-bmw-x5-awd-4-door-xdrive35d-angular-front-exterior-view_100569033_m.jpg"
-                ]
+                ],
+                "engine": "Twin Turbo Diesel I-6, 3.0 L",
+                "transmission": "8-Speed Automatic",
+                "condition": "S",
+                "mileage": "21 mpg City/31 mpg Hwy",
+                "location": "west end avenue",
+                "isFeatured": true
             },
             {
                 "title": "2014 Chrysler 300",
@@ -15,7 +21,13 @@
                 "price": 3230600,
                 "images": [
                     "https://images.hgmsites.net/med/2014-chrysler-300-4-door-sedan-awd-angular-front-exterior-view_100444122_m.jpg"
-                ]
+                ],
+                "engine": "Premium Unleaded V-8, 6.4 L",
+                "transmission": "5-Speed Automatic",
+                "condition": "X",
+                "mileage": "18 mpg City/41 mpg Hwy",
+                "location": "hillbilly parkends",
+                "isFeatured": true
             },
             {
                 "title": "2012 Mercedes-Benz C Class",
@@ -23,7 +35,13 @@
                 "price": 4228192,
                 "images": [
                     "https://images.hgmsites.net/med/2012-mercedes-benz-c-class-4-door-sedan-c250-sport-rwd-angular-front-exterior-view_100424468_m.jpg"
-                ]
+                ],
+                "engine": "Turbocharged Gas I4, 1.8L",
+                "transmission": "7-Speed Automatic",
+                "condition": "X",
+                "mileage": "25 mpg City/23 mpg Hwy",
+                "location": "Brooklyn renorld st",
+                "isFeatured": true
             },
             {
                 "title": "2014 Mercedes-Benz E Class",
@@ -31,7 +49,13 @@
                 "price": 3450500,
                 "images": [
                     "https://images.hgmsites.net/med/2014-mercedes-benz-e-class-4-door-wagon-e350-sport-4matic-angular-front-exterior-view_100432862_m.jpg"
-                ]
+                ],
+                "engine": "Premium Unleaded V-6, 3.5 L",
+                "transmission": "7-Speed Automatic",
+                "condition": "N",
+                "mileage": "19 mpg City/28 mpg Hwy",
+                "location": "234 southpark trail",
+                "isFeatured": true
             },
             {
                 "title": "2015 Nissan Frontier",
@@ -39,7 +63,13 @@
                 "price": 3900300,
                 "images": [
                     "https://images.hgmsites.net/med/2015-nissan-frontier-2wd-king-cab-i4-auto-sv-angular-front-exterior-view_100504165_m.jpg"
-                ]
+                ],
+                "engine": "Regular Unleaded V-6, 4.0 L",
+                "transmission": "5-Speed Automatic",
+                "condition": "N",
+                "mileage": "16 mpg City/22 mpg Hwy",
+                "location": "Dr pickens park",
+                "isFeatured": true
             },
             {
                 "title": "2010 GMC Canyon",
@@ -47,7 +77,13 @@
                 "price": 1340855,
                 "images": [
                     "https://images.hgmsites.net/med/2010-gmc-canyon-2wd-ext-cab-125-9-sle1-angular-front-exterior-view_100253021_m.jpg"
-                ]
+                ],
+                "engine": "Gas I4, 2.9L",
+                "transmission": "4-Speed Automatic",
+                "condition": "N",
+                "mileage": "18 mpg City/25 mpg Hwy",
+                "location": "Kenyatta avenue",
+                "isFeatured": true
             },
             {
                 "title": "2008 Ford Ranger",
@@ -55,7 +91,13 @@
                 "price": 1295350,
                 "images": [
                     "https://images.hgmsites.net/med/2008-ford-ranger-2wd-2dr-supercab-126-brown_100055744_m.jpg"
-                ]
+                ],
+                "engine": "Gas V6, 3.0L",
+                "transmission": "5-Speed Manual",
+                "condition": "S",
+                "mileage": "16 mpg City/22 mpg Hwy",
+                "location": "Muindi mbingu st",
+                "isFeatured": true
             },
             {
                 "title": "2014 Ford Mustang",
@@ -63,7 +105,13 @@
                 "price": 4100320,
                 "images": [
                     "https://images.hgmsites.net/med/2014-ford-mustang-2-door-coupe-gt-premium-angular-front-exterior-view_100418495_m.jpg"
-                ]
+                ],
+                "engine": "Premium Unleaded V-8, 5.0 L",
+                "transmission": "6-Speed Manual",
+                "condition": "N",
+                "mileage": "18 mpg City/24 mpg Hwy",
+                "location": "Zimmerman",
+                "isFeatured": true
             },
             {
                 "title": "2016 Toyota Corolla",
@@ -71,7 +119,13 @@
                 "price": 1800430,
                 "images": [
                     "https://images.hgmsites.net/med/2016-toyota-corolla-4-door-sedan-cvt-le-eco-natl-angular-front-exterior-view_100535747_m.jpg"
-                ]
+                ],
+                "engine": "Regular Unleaded I-4, 1.8 L",
+                "transmission": "4-Speed Automatic",
+                "condition": "N",
+                "mileage": "19 mpg City/32 mpg Hwy",
+                "location": "Parklands avenue",
+                "isFeatured": true
             },
             {
                 "title": "2015 Subaru Outback",
@@ -79,7 +133,13 @@
                 "price": 2600500,
                 "images": [
                     "https://images.hgmsites.net/med/2015-subaru-outback-4-door-wagon-h4-auto-2-5i-angular-front-exterior-view_100501193_m.jpg"
-                ]
+                ],
+                "engine": "Regular Unleaded H-4, 2.5 L",
+                "transmission": "6-Speed Manual",
+                "condition": "N",
+                "mileage": "25 mpg City/33 mpg Hwy",
+                "location": "Imperial bank south B",
+                "isFeatured": true
             },
             {
                 "title": "2016 Toyota Land Cruiser",
@@ -87,7 +147,13 @@
                 "price": 5400268,
                 "images": [
                     "https://images.hgmsites.net/med/2016-toyota-land-cruiser-4-door-4wd-natl-angular-front-exterior-view_100570394_m.jpg"
-                ]
+                ],
+                "engine": "Regular Unleaded V-8, 5.7 L",
+                "transmission": "6-Speed Automatic",
+                "condition": "N",
+                "mileage": "13 mpg City/18 mpg Hwy",
+                "location": "Kitengela/411 avenue",
+                "isFeatured": true
             },
             {
                 "title": "2012 Land Rover Range Rover",
@@ -95,7 +161,13 @@
                 "price": 3565730,
                 "images": [
                     "https://images.hgmsites.net/med/2012-land-rover-range-rover-4wd-4-door-hse-angular-front-exterior-view_100393763_m.jpg"
-                ]
+                ],
+                "engine": "Gas V8, 5.0L",
+                "transmission": "8-Speed Automatic",
+                "condition": "S",
+                "mileage": "12 mpg City/18 mpg Hwy",
+                "location": "Meakings memorial",
+                "isFeatured": true
             }
             
             
