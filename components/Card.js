@@ -1,20 +1,15 @@
 //responsible for presenting data as card
 import Image from "next/image";
 import { useEffect } from "react";
-import styles from "../styles/card.module.css";
+import { formatPrice } from "../utils";
 
 const Card = ({ car }) => {
-  function formatPrice(x) {
-    return x
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
   return (
     <div className="mb-3 col-md-6 col-lg-3">
       <div className="card">
         <div
           title={car.title}
-          className={`card-img-top ${styles.image}`}
+          className="card-img-top"
           style={{
             backgroundImage: `url(${car.images[0]})`,
           }}
