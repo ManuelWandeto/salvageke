@@ -7,7 +7,6 @@ import styles from "../styles/index.module.css";
 const Home = () => {
   return (
     <>
-      <Header></Header>
       <section className={styles.content}>
         <Container fluid="md">
           <div className="col-sm-12">
