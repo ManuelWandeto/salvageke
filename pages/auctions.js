@@ -17,7 +17,7 @@ const Auctions = () => {
     axios
       .get("http://localhost:8000/auctions")
       .then((response) =>
-        setItems(paginate(response.data.cars, 4))
+        setItems(paginate(response.data.cars, 2))
       )
       .catch((e) => console.log(e.message));
   }, []);
@@ -76,15 +76,26 @@ const Auctions = () => {
                       {page.pageNumber}
                     </Pagination.Item>
                   ))}
+                  {activePage > 2 &&
+                    activePage < items.totalPages && (
+                      <>
+                        <Pagination.Item
+                          key={activePage}
+                          active={true}
+                        >
+                          {activePage}
+                        </Pagination.Item>
+                      </>
+                    )}
                   <Pagination.Ellipsis />
                   <Pagination.Item
-                    key={page.pageNumber}
-                    active={page.pageNumber === activePage}
+                    key={items.totalPages}
+                    active={items.totalPages === activePage}
                     onClick={() =>
-                      setActivePage(page.pageNumber)
+                      setActivePage(items.totalPages)
                     }
                   >
-                    {page.pageNumber}
+                    {items.totalPages}
                   </Pagination.Item>
                 </>
               )}
