@@ -12,7 +12,7 @@ import { paginate } from "../utils";
 
 const Auctions = () => {
   const [items, setItems] = useState(null);
-  const [active, setActive] = useState(1);
+  const [activePage, setActivePage] = useState(1);
   useEffect(() => {
     axios
       .get("http://localhost:8000/auctions")
@@ -35,22 +35,80 @@ const Auctions = () => {
               {items.totalItems} Items
             </strong>
             <Pagination className="col-6 m-0">
-              <Pagination.First />
-              <Pagination.Prev />
-              <Pagination.Item>{1}</Pagination.Item>
-              <Pagination.Item active>{2}</Pagination.Item>
-              {items.totalPages - 2 > 5 && (
-                <Pagination.Ellipsis />
+              <Pagination.First
+                onClick={() => setActivePage(1)}
+                disabled={
+                  items.totalPages === 1 || activePage === 1
+                }
+              />
+              <Pagination.Prev
+                onClick={() =>
+                  setActivePage((prev) => prev - 1)
+                }
+                disabled={
+                  items.totalPages === 1 || activePage === 1
+                }
+              />
+              {items.totalPages <= 4 ? (
+                items.pages.map((page) => (
+                  <Pagination.Item
+                    key={page.pageNumber}
+                    active={page.pageNumber === activePage}
+                    onClick={() =>
+                      setActivePage(page.pageNumber)
+                    }
+                  >
+                    {page.pageNumber}
+                  </Pagination.Item>
+                ))
+              ) : (
+                <>
+                  {items.pages.slice(0, 2).map((page) => (
+                    <Pagination.Item
+                      key={page.pageNumber}
+                      active={
+                        page.pageNumber === activePage
+                      }
+                      onClick={() =>
+                        setActivePage(page.pageNumber)
+                      }
+                    >
+                      {page.pageNumber}
+                    </Pagination.Item>
+                  ))}
+                  <Pagination.Ellipsis />
+                  <Pagination.Item
+                    key={page.pageNumber}
+                    active={page.pageNumber === activePage}
+                    onClick={() =>
+                      setActivePage(page.pageNumber)
+                    }
+                  >
+                    {page.pageNumber}
+                  </Pagination.Item>
+                </>
               )}
-
-              <Pagination.Item>
-                {items.totalPages}
-              </Pagination.Item>
-              <Pagination.Next />
-              <Pagination.Last />
+              <Pagination.Next
+                onClick={() =>
+                  setActivePage((prev) => prev + 1)
+                }
+                disabled={
+                  items.totalPages === 1 ||
+                  activePage === items.totalPages
+                }
+              />
+              <Pagination.Last
+                onClick={() =>
+                  setActivePage(items.totalPages)
+                }
+                disabled={
+                  items.totalPages === 1 ||
+                  activePage === items.totalPages
+                }
+              />
             </Pagination>
           </Row>
-          {items.pages[0].items.map((item) => (
+          {items.pages[activePage - 1].items.map((item) => (
             <AuctionItem key={item.id} item={item} />
           ))}
         </div>
