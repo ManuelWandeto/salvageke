@@ -71,7 +71,7 @@ const Navigation = ({ selectHandler }) => {
         <NavLink
           route="#"
           icon={HiInformationCircle}
-          label="Information"
+          label="About Us"
         />
       </li>
       <li>
