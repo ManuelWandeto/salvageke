@@ -25,7 +25,7 @@ const AuctionItem = ({ item }) => {
     <div className="card my-3">
       <div
         className="card-img-top"
-        title="land cruiser"
+        title={item.title}
         style={{
           backgroundImage: `url(${item.images[0]})`,
         }}
