@@ -17,7 +17,7 @@ const Auctions = () => {
     axios
       .get("http://localhost:8000/auctions")
       .then((response) =>
-        setItems(paginate(response.data.cars, 2))
+        setItems(paginate(response.data.cars, 4))
       )
       .catch((e) => console.log(e.message));
   }, []);
