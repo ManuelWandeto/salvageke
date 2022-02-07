@@ -1,7 +1,7 @@
 import { FaHome } from "react-icons/fa";
 import { FaCar } from "react-icons/fa";
 import { FaGavel } from "react-icons/fa";
-import { GiSpanner } from "react-icons/gi";
+import { GiSpanner, GiTyre } from "react-icons/gi";
 import { GoGear } from "react-icons/go";
 import { HiInformationCircle } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
@@ -9,95 +9,77 @@ import styles from "../styles/nav.module.css";
 import Link from "next/link";
 
 const Navigation = ({ selectHandler }) => {
+  const NavLink = ({ route, icon, label }) => {
+    const Icon = icon;
+    return (
+      <Link href={route}>
+        <a
+          className={`${styles.nav_link} active`}
+          onClick={selectHandler}
+        >
+          <span className={`${styles.icon} d-md-none`}>
+            <Icon />
+          </span>
+          <span className="label">{label}</span>
+        </a>
+      </Link>
+    );
+  };
   return (
     <ul
       className={`navbar-nav ${styles.nav} justify-content-around`}
     >
       <li>
-        <Link href="/">
-          <a
-            className={`${styles.nav_link} active`}
-            onClick={selectHandler}
-          >
-            <span className={`${styles.icon} d-md-none`}>
-              <FaHome />
-            </span>
-            <span className="label">Home</span>
-          </a>
-        </Link>
+        <NavLink route="/" icon={FaHome} label="Home" />
       </li>
       <li>
-        <a
-          href="#"
-          className={styles.nav_link}
-          onClick={selectHandler}
-        >
-          <span className={`${styles.icon} d-md-none`}>
-            <FaCar />
-          </span>
-          <span className="label">Sell Your Car</span>
-        </a>
+        <NavLink
+          route="#"
+          icon={FaCar}
+          label="Sell Your Car"
+        />
       </li>
       <li>
-        <Link href="/auctions">
-          <a
-            className={styles.nav_link}
-            onClick={selectHandler}
-          >
-            <span className={`${styles.icon} d-md-none`}>
-              <FaGavel />
-            </span>
-            <span className="label">Auction</span>
-          </a>
-        </Link>
+        <NavLink
+          route="/auctions"
+          icon={FaGavel}
+          label="Auctions"
+        />
       </li>
       <li>
-        <a
-          href="#"
-          className={styles.nav_link}
-          onClick={selectHandler}
-        >
-          <span className={`${styles.icon} d-md-none`}>
-            <GiSpanner />
-          </span>
-          <span className="label">Car Parts</span>
-        </a>
+        <NavLink
+          route="/parts"
+          icon={GiSpanner}
+          label="Car Parts"
+        />
       </li>
       <li>
-        <a
-          href="#"
-          className={styles.nav_link}
-          onClick={selectHandler}
-        >
-          <span className={`${styles.icon} d-md-none`}>
-            <GoGear />
-          </span>
-          <span className="label">Engines</span>
-        </a>
+        <NavLink
+          route="/parts/engines"
+          icon={GoGear}
+          label="Engines"
+        />
       </li>
       <li>
-        <a
-          href="#"
-          className={styles.nav_link}
-          onClick={selectHandler}
-        >
-          <span className={`${styles.icon} d-md-none`}>
-            <HiInformationCircle />
-          </span>
-          <span className="label">Information</span>
-        </a>
+        <NavLink
+          route="/parts/tyres"
+          icon={GiTyre}
+          label="Tyres"
+        />
       </li>
       <li>
-        <a
-          href="#"
-          className={styles.nav_link}
-          onClick={selectHandler}
-        >
-          <span className={`${styles.icon} d-md-none`}>
-            <FaPhone />
-          </span>
-          <span className="label">Contact Us</span>
-        </a>
+        <NavLink
+          route="#"
+          icon={HiInformationCircle}
+          label="Information"
+        />
+      </li>
+      <li>
+        <NavLink
+          route="#"
+          icon={FaPhone}
+          label="Contact Us"
+        />
       </li>
     </ul>
   );
