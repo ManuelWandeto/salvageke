@@ -2,15 +2,27 @@ import { Row } from "react-bootstrap";
 import Engine from "../../components/Engine";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Filters from "../../components/EngineFilterForm";
+import { getSelectOptions } from "../../utils";
+import { FaChevronDown } from "react-icons/fa";
 
 const Engines = () => {
   const [engines, setEngines] = useState(null);
+  const [selectOptions, setSelectOptions] = useState(null);
+  const [filterToggle, toggleFilter] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/engines")
-      .then((response) => setEngines(response.data))
+      .get("http://localhost:8000/parts")
+      .then((response) => {
+        let data = response.data.engines;
+        setEngines(data);
+        setSelectOptions(
+          getSelectOptions(data, Object.keys(data[0]))
+        );
+      })
       .catch((e) => console.log(e.message));
   }, []);
+
   return engines ? (
     <section className="content container-md">
       <Row className="justify-content-around align-items-center my-4">
@@ -21,6 +33,26 @@ const Engines = () => {
           {engines.length} Engines
         </strong>
       </Row>
+      <button
+        className="btn btn-warning mb-3"
+        onClick={() => toggleFilter((toggle) => !toggle)}
+      >
+        Show filter options
+        <FaChevronDown className="ms-2" />
+      </button>
+      <div
+        className={`mb-4 collapse ${
+          filterToggle ? "show" : ""
+        }`}
+        id="filter"
+      >
+        <h2 style={{ fontSize: 21, fontWeight: 600 }}>
+          Filter the list
+        </h2>
+        {selectOptions && (
+          <Filters options={selectOptions} />
+        )}
+      </div>
       <Row className="g-md-2 gy-4 gy-md-4">
         {engines.map((engine) => (
           <Engine key={engine.id} engine={engine} />
@@ -28,7 +60,7 @@ const Engines = () => {
       </Row>
     </section>
   ) : (
-    <div>
+    <div className="content">
       <h1>Engines not loaded yet</h1>
     </div>
   );
