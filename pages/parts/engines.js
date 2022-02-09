@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap";
+import { Row, Collapse } from "react-bootstrap";
 import Engine from "../../components/Engine";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -36,23 +36,22 @@ const Engines = () => {
       <button
         className="btn btn-warning mb-3"
         onClick={() => toggleFilter((toggle) => !toggle)}
+        aria-controls="filters"
+        aria-expanded={filterToggle}
       >
         Show filter options
         <FaChevronDown className="ms-2" />
       </button>
-      <div
-        className={`mb-4 collapse ${
-          filterToggle ? "show" : ""
-        }`}
-        id="filter"
-      >
-        <h2 style={{ fontSize: 21, fontWeight: 600 }}>
-          Filter the list
-        </h2>
-        {selectOptions && (
-          <Filters options={selectOptions} />
-        )}
-      </div>
+      <Collapse in={filterToggle} className="mb-4">
+        <div id="filter">
+          <h2 style={{ fontSize: 21, fontWeight: 600 }}>
+            Filter the list
+          </h2>
+          {selectOptions && (
+            <Filters options={selectOptions} />
+          )}
+        </div>
+      </Collapse>
       <Row className="g-md-2 gy-4 gy-md-4">
         {engines.map((engine) => (
           <Engine key={engine.id} engine={engine} />
