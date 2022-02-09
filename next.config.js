@@ -2,7 +2,8 @@ module.exports = {
   reactStrictMode: true,
   images: {
     domains: [
-      "images.hgmsites.net, asmeu1.s3.amazonaws.com",
+      "asmeu1.s3.amazonaws.com",
+      "s3.eu-west-2.amazonaws.com",
     ],
   },
 };
