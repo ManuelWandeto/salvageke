@@ -74,7 +74,7 @@ strong {
   background-color: inherit;
 }
 .card-img-top {
-  background-size: 90%;
+  background-size: cover;
   background-position: center center;
   padding-bottom: 56%;
   background-repeat: no-repeat;
