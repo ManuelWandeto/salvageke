@@ -13,14 +13,33 @@ import { paginate } from "../utils";
 const Auctions = () => {
   const [items, setItems] = useState(null);
   const [activePage, setActivePage] = useState(1);
+  const [totalPages, setTotalPages] = useState(null);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/auctions")
-      .then((response) =>
-        setItems(paginate(response.data.cars, 4))
+      .get(
+        `${process.env.NEXT_PUBLIC_API}/auctions?page=${activePage}&limit=${4}`
       )
+      .then((response) => {
+        setItems(response.data.results);
+        setTotalPages(response.data.totalPages);
+      })
       .catch((e) => console.log(e.message));
-  }, []);
+  }, [activePage]);
+  const createPagination = (totalPages) => {
+    let pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageItems.push(
+        <Pagination.Item
+          key={i}
+          active={i === activePage}
+          onClick={() => setActivePage(i)}
+        >
+          {i}
+        </Pagination.Item>
+      );
+    }
+    return pageItems;
+  };
   return (
     <section className="content">
       <Container
@@ -38,7 +57,7 @@ const Auctions = () => {
               <Pagination.First
                 onClick={() => setActivePage(1)}
                 disabled={
-                  items.totalPages === 1 || activePage === 1
+                  totalPages === 1 || activePage === 1
                 }
               />
               <Pagination.Prev
@@ -46,38 +65,16 @@ const Auctions = () => {
                   setActivePage((prev) => prev - 1)
                 }
                 disabled={
-                  items.totalPages === 1 || activePage === 1
+                  totalPages === 1 || activePage === 1
                 }
               />
-              {items.totalPages <= 4 ? (
-                items.pages.map((page) => (
-                  <Pagination.Item
-                    key={page.pageNumber}
-                    active={page.pageNumber === activePage}
-                    onClick={() =>
-                      setActivePage(page.pageNumber)
-                    }
-                  >
-                    {page.pageNumber}
-                  </Pagination.Item>
-                ))
+              {totalPages <= 4 ? (
+                createPagination(totalPages)
               ) : (
                 <>
-                  {items.pages.slice(0, 2).map((page) => (
-                    <Pagination.Item
-                      key={page.pageNumber}
-                      active={
-                        page.pageNumber === activePage
-                      }
-                      onClick={() =>
-                        setActivePage(page.pageNumber)
-                      }
-                    >
-                      {page.pageNumber}
-                    </Pagination.Item>
-                  ))}
+                  {createPagination(2)}
                   {activePage > 2 &&
-                    activePage < items.totalPages && (
+                    activePage < totalPages && (
                       <>
                         <Pagination.Item
                           key={activePage}
@@ -89,13 +86,13 @@ const Auctions = () => {
                     )}
                   <Pagination.Ellipsis />
                   <Pagination.Item
-                    key={items.totalPages}
-                    active={items.totalPages === activePage}
+                    key={totalPages}
+                    active={totalPages === activePage}
                     onClick={() =>
-                      setActivePage(items.totalPages)
+                      setActivePage(totalPages)
                     }
                   >
-                    {items.totalPages}
+                    {totalPages}
                   </Pagination.Item>
                 </>
               )}
@@ -104,23 +101,21 @@ const Auctions = () => {
                   setActivePage((prev) => prev + 1)
                 }
                 disabled={
-                  items.totalPages === 1 ||
-                  activePage === items.totalPages
+                  totalPages === 1 ||
+                  activePage === totalPages
                 }
               />
               <Pagination.Last
-                onClick={() =>
-                  setActivePage(items.totalPages)
-                }
+                onClick={() => setActivePage(totalPages)}
                 disabled={
-                  items.totalPages === 1 ||
-                  activePage === items.totalPages
+                  totalPages === 1 ||
+                  activePage === totalPages
                 }
               />
             </Pagination>
           </Row>
-          {items.pages[activePage - 1].items.map((item) => (
-            <AuctionItem key={item.id} item={item} />
+          {items.map((item) => (
+            <AuctionItem key={item._id} item={item} />
           ))}
         </div>
       ) : (
