@@ -12,9 +12,9 @@ const Engines = () => {
   const [filterToggle, toggleFilter] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/parts")
+      .get(`${process.env.NEXT_PUBLIC_API}/engines`)
       .then((response) => {
-        let data = response.data.engines;
+        const data = response.data;
         setEngines(data);
         setSelectOptions(
           getSelectOptions(data, Object.keys(data[0]))
@@ -58,7 +58,7 @@ const Engines = () => {
       </Collapse>
       <Row className="g-md-2 gy-4 gy-md-4">
         {engines.map((engine) => (
-          <Engine key={engine.id} engine={engine} />
+          <Engine key={engine._id} engine={engine} />
         ))}
       </Row>
     </section>
