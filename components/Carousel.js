@@ -6,23 +6,25 @@ import { paginate } from "../utils";
 //responsible for fetching data to render on carousel
 
 const AuctionCarousel = () => {
-  const [repo, setRepo] = useState(null);
+  const [featured, setFeaturedAuctions] = useState(null);
   useEffect(() => {
+    const host = process.env.NEXT_PUBLIC_API;
     axios
-      .get("http://localhost:8000/auctions")
+      .get(`${host}/auctions?featured`)
       .then((response) =>
-        setRepo(paginate(response.data.cars, 4).pages)
+        setFeaturedAuctions(
+          paginate(response.data, 4).pages
+        )
       )
       .catch((e) => console.log(e.message));
   }, []);
-
-  return repo ? (
+  return featured ? (
     <Carousel className="carousel-dark">
-      {repo.map((page) => (
+      {featured.map((page) => (
         <Carousel.Item key={page.pageNumber}>
           <div className="row">
             {page.items.map((car) => (
-              <Card car={car} key={car.id} />
+              <Card car={car} key={car._id} />
             ))}
           </div>
         </Carousel.Item>
