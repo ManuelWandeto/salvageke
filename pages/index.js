@@ -2,8 +2,34 @@ import Header from "../components/Header";
 import AuctionCarousel from "../components/Carousel";
 import AuctionForm from "../components/AuctionForm.js";
 import { Container } from "react-bootstrap";
+import axios from "axios";
+import { paginate } from "../utils";
 
-const Home = () => {
+export async function getStaticProps() {
+  try {
+    const host = process.env.NEXT_PUBLIC_API;
+    const response = await axios.get(
+      host + "/auctions?featured"
+    );
+
+    return {
+      props: {
+        featuredAuctions: paginate(response.data, 4).pages,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.log(
+      `error occured fetching data in getStaticprops${error}`
+    );
+  }
+  return {
+    props: {
+      featuredAuctions: undefined,
+    },
+  };
+}
+const Home = ({ featuredAuctions }) => {
   return (
     <>
       <section className="content">
@@ -43,7 +69,7 @@ const Home = () => {
                 </strong>
               </p>
             </div>
-            <AuctionCarousel />
+            <AuctionCarousel featured={featuredAuctions} />
           </div>
         </Container>
       </section>

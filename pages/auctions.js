@@ -8,23 +8,34 @@ import { IoMdCart } from "react-icons/io";
 import AuctionItem from "../components/AuctionItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { paginate } from "../utils";
+import Router from 'next/router';
 
-const Auctions = () => {
-  const [items, setItems] = useState(null);
+export async function getServerSideProps({ query }) {
+  try {
+    const page = query.page || 1;
+    const limit = 4;
+    console.log(page);
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/auctions?page=${page}&limit=${limit}`);
+    const totalPages = res.data.totalPages;
+    return {
+      props: { auctions: res.data.results, totalPages: totalPages}
+    };
+    
+  } catch (error) {
+    console.log(`error fetching auctions in getServerSideProps: ${error}`)
+  }
+  return {
+    props: {auctions: null, totalPages: null}
+  }
+}
+const Auctions = ({ auctions, totalPages }) => {
   const [activePage, setActivePage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API}/auctions?page=${activePage}&limit=${4}`
-      )
-      .then((response) => {
-        setItems(response.data.results);
-        setTotalPages(response.data.totalPages);
-      })
-      .catch((e) => console.log(e.message));
-  }, [activePage]);
+  useEffect(()=>{
+    Router.push({
+      pathname: '/auctions',
+      query: {page: activePage}
+    })
+  }, [activePage])
   const createPagination = (totalPages) => {
     let pageItems = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -46,12 +57,12 @@ const Auctions = () => {
         fluid="md"
         className={styles.filter}
       ></Container>
-      {items ? (
+      {auctions ? (
         <div className={`${styles.items} p-3`}>
           <Row className="justify-content-around">
             <strong className="col-3 p-0 text-center align-middle">
               <IoMdCart className={`me-1 ${styles.icon}`} />
-              {items.totalItems} Items
+              {auctions.totalItems} Items
             </strong>
             <Pagination className="col-6 m-0">
               <Pagination.First
@@ -114,7 +125,7 @@ const Auctions = () => {
               />
             </Pagination>
           </Row>
-          {items.map((item) => (
+          {auctions.map((item) => (
             <AuctionItem key={item._id} item={item} />
           ))}
         </div>
