@@ -26,7 +26,7 @@ const Engine = ({ engine }) => {
             <div className="col-3 text-center border-end border-info">
               <span className={styles.label}>Size</span>
               <br />
-              {engine.capacity}
+              {engine.capacity} cc
             </div>
             <div className="col-3 text-center border-end border-info">
               <span className={styles.label}>Fuel</span>
