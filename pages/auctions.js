@@ -14,7 +14,6 @@ export async function getServerSideProps({ query }) {
   try {
     const page = query.page || 1;
     const limit = 4;
-    console.log(page);
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/auctions?page=${page}&limit=${limit}`);
     const totalPages = res.data.totalPages;
     return {
@@ -125,9 +124,11 @@ const Auctions = ({ auctions, totalPages }) => {
               />
             </Pagination>
           </Row>
-          {auctions.map((item) => (
-            <AuctionItem key={item._id} item={item} />
-          ))}
+          <Row>
+            {auctions.map((item) => (
+              <AuctionItem key={item._id} item={item} />
+            ))}
+          </Row>
         </div>
       ) : (
         <p>No auction items found </p>
