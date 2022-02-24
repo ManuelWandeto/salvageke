@@ -4,7 +4,11 @@
   margin: 0;
   color: white;
 }
-
+a.activeLink {
+  background: linear-gradient(to bottom, #e6d300 0%,#ffeb0d 100%);
+  color: var(--text-light) !important;
+  font-weight: 700;
+}
 .nav_link {
   width: 100%;
   display: inline-block;
@@ -14,9 +18,10 @@
     #ed1c24 100%
   );
   text-transform: uppercase;
-  font-size: 21px;
-  font-weight: bold;
-  padding: 16px;
+  font-size: var(--fs-secondary);
+  font-family: var(--ff-body-text);
+  font-weight: 650;
+  padding: 1em;
   border: 1px solid rgba(0, 0, 0, 0.75);
   border-radius: 6px;
   border-bottom-color: rgba(255, 255, 255, 0.55);
@@ -28,8 +33,8 @@
 
 @media (min-width: 768px) {
   .nav_link {
-    font-size: 12px;
-    padding: 6px 6.5px 5px 6.5px;
+    font-size: .75rem;
+    padding: 6px .50em 5px .50em;
     margin: 7px 3px;
   }
   .nav {
