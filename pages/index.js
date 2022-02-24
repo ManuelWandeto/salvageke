@@ -47,9 +47,9 @@ const Home = ({ featuredAuctions }) => {
               </p>
             </div>
           </div>
-          <div className="block mb-4">
+          <div className="mb-4 block">
             <div style={{ marginTop: "3.5px" }}>
-              <h2>Sell your Car</h2>
+              <h1>Sell your Car</h1>
               <p>
                 <strong>
                   We buy any vehicle in any condition with a
@@ -58,10 +58,11 @@ const Home = ({ featuredAuctions }) => {
               </p>
             </div>
             <AuctionForm />
+
           </div>
           <div className="block">
             <div style={{ marginTop: "3.5px" }}>
-              <h2>Online Auction</h2>
+              <h1>Online Auction</h1>
               <p>
                 <strong>
                   Featured vehicles, car parts and all that
