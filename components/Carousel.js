@@ -1,5 +1,5 @@
 import { Carousel } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "./Card";
 
 const AuctionCarousel = ({ featured }) => {
@@ -7,7 +7,7 @@ const AuctionCarousel = ({ featured }) => {
     <Carousel className="carousel-dark">
       {featured.map((page) => (
         <Carousel.Item key={page.pageNumber}>
-          <div className="row">
+          <div className="row g-2">
             {page.items.map((car) => (
               <Card car={car} key={car._id} />
             ))}
