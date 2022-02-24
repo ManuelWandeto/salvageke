@@ -3,14 +3,33 @@ import { MdLocationOn } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { MdPhone } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
-import styles from "../styles/auctionform.module.css";
+import { css } from '@emotion/react';
+
+const formGroup = css`
+  max-width: 375px;
+`
+const inputAddon = css`
+  background-color: #e72727;
+  color: #fff;
+  border: 1px solid #c42323;
+`
+const addon = css`
+    width: 21px;
+    height: 21px;
+`
 
 const AuctionForm = () => {
   return (
-    <Form>
+    <Form css={css`
+      font-size: var(--fs-default);
+      font-family: var(--ff-body-text);
+      color: var(--text-light);
+    `}>
+      <div className="row">
       <Form.Group
         controlId="vehicle registration input"
-        className={`mb-3 d-block mx-auto ${styles.form_group}`}
+        className={`mb-3 d-block mx-auto col-sm-6 col-xl-3`}
+        css={formGroup}
       >
         <InputGroup>
           <InputGroup.Text
@@ -26,13 +45,14 @@ const AuctionForm = () => {
         </InputGroup>
       </Form.Group>
       <Form.Group
-        className={`mb-3 d-block mx-auto ${styles.form_group}`}
+        css={formGroup}
+        className="mb-3 d-block mx-auto col-sm-6 col-xl-3"
       >
         <InputGroup>
-          <InputGroup.Text className={styles.input_addon}>
+          <InputGroup.Text css={inputAddon}>
             <MdLocationOn
               color="white"
-              className={styles.addon}
+              css={addon}
             />
           </InputGroup.Text>
           <Form.Control
@@ -43,13 +63,14 @@ const AuctionForm = () => {
         </InputGroup>
       </Form.Group>
       <Form.Group
-        className={`mb-3 d-block mx-auto ${styles.form_group}`}
+        css={formGroup}
+        className="mb-3 d-block mx-auto col-sm-6 col-xl-3"
       >
         <InputGroup>
-          <InputGroup.Text className={styles.input_addon}>
+          <InputGroup.Text css={inputAddon}>
             <MdEmail
               color="white"
-              className={styles.addon}
+              css={addon}
             />
           </InputGroup.Text>
           <Form.Control
@@ -60,13 +81,14 @@ const AuctionForm = () => {
         </InputGroup>
       </Form.Group>
       <Form.Group
-        className={`mb-3 d-block mx-auto ${styles.form_group}`}
+        css={formGroup}
+        className="mb-3 d-block mx-auto col-sm-6 col-xl-3"
       >
         <InputGroup>
-          <InputGroup.Text className={styles.input_addon}>
+          <InputGroup.Text css={inputAddon}>
             <MdPhone
               color="white"
-              className={styles.addon}
+              css={addon}
             />
           </InputGroup.Text>
           <Form.Control
@@ -77,6 +99,7 @@ const AuctionForm = () => {
           ></Form.Control>
         </InputGroup>
       </Form.Group>
+      </div>
       <button className="btn btn-warning btn-lg d-block mx-auto">
         Get Price
         <FaChevronRight className="ms-1" />
