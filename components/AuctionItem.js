@@ -4,6 +4,7 @@ import { FaGasPump } from "react-icons/fa";
 import { MdCategory, MdLocationPin } from "react-icons/md";
 import { RiAuctionFill } from "react-icons/ri";
 import { formatPrice } from "../utils";
+import {css} from '@emotion/react';
 
 const ListGroupItem = ({ label, value, icon }) => {
   const Icon = icon;
@@ -14,15 +15,21 @@ const ListGroupItem = ({ label, value, icon }) => {
           className={`me-2 ${styles.icon}`}
           color="rgba(43,71,147,0.5)"
         ></Icon>
-        {label}:
+        <strong>{label}:</strong>
       </span>
-      <span className="list-group-text-item">{value}</span>
+      <span className="list-group-text-item col-8"
+      css={css`
+        font-family: var(--ff-body-text);
+        font-size: var(--fs-caption);
+        text-align: end;
+      `}
+      >{value}</span>
     </li>
   );
 };
 const AuctionItem = ({ item }) => {
   return (
-    <div className="card my-3">
+    <div className="card my-3 col-md-6 col-xl-4">
       <div
         className="card-img-top"
         title={item.title}
@@ -30,23 +37,34 @@ const AuctionItem = ({ item }) => {
           backgroundImage: `url(${item.images[0]})`,
         }}
       ></div>
-      <hr className="m-0" />
       <div
         className="card-body"
         style={{ backgroundColor: "#E4E4E4" }}
       >
-        <h2 className="card-title">{item.title}</h2>
+        <h2 className="card-title"
+        css={css`
+          font-size: var(--fs-heading);
+        `}
+        >{item.title}</h2>
         <div className="row justify-content-between">
-          <strong className="col-7 fs-4">
+          <strong className="col-7">
             <RiAuctionFill
               className={`me-2 ${styles.icon}`}
             />
             highest bid:
           </strong>
           <span
-            className={`${styles.price} col-5 text-end`}
+            className="col-5 text-end"
+            css ={css`
+              font-size: var(--fs-secondary);
+              font-weight: 600;
+              color: white;
+              background-color: #2b4793;
+              font-family: var(--ff-body-text);
+              border-radius: 3px;
+            `}
           >
-            {formatPrice(item.price)}
+            KSH {formatPrice(item.price)}
           </span>
         </div>
         <ul className="list-group list-group-flush my-3">
