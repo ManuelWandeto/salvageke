@@ -1,10 +1,11 @@
 import { Row, Collapse } from "react-bootstrap";
 import Engine from "../../components/Engine";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import axios from "axios";
 import Filters from "../../components/EngineFilterForm";
 import { getSelectOptions } from "../../utils";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {css} from '@emotion/react';
 
 export async function getStaticProps() {
   try {
@@ -37,8 +38,13 @@ const Engines = ({engines, selectOptions}) => {
       <button
         className="btn btn-warning mb-3"
         onClick={() => toggleFilter((toggle) => !toggle)}
-        aria-controls="filters"
+        aria-controls="filter"
         aria-expanded={filterToggle}
+        css={css`
+          font-family: var(--ff-body-text);
+          font-size: var(--fs-caption);
+          font-weight: 600;
+        `}
       >
         Show filter options
         {filterToggle ? (
