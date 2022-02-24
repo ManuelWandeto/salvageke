@@ -1,7 +1,6 @@
-//responsible for presenting data as card
-import Image from "next/image";
-import { useEffect } from "react";
 import { formatPrice } from "../utils";
+import {css } from "@emotion/react";
+import {FaChevronRight} from 'react-icons/fa';
 
 const Card = ({ car }) => {
   return (
@@ -14,15 +13,21 @@ const Card = ({ car }) => {
             backgroundImage: `url(${car.images[0]})`,
           }}
         ></div>
-        <hr />
         <div className="card-body">
-          <h2 className="card-title fs-4">{car.title}</h2>
-          <div className="row justify-content-between">
-            <strong className="col-4">
+          <h2 className="card-title">{car.title}</h2>
+          <div className="row justify-content-between g-0">
+            <strong className="col-6 col-lg-12" css={css`
+              font-size: var(--fs-caption);
+            `}>
               {`KSH ${formatPrice(car.price)}`}
             </strong>
-            <button className="btn-warning col-3 me-2">
+            <button className="btn-warning col-4 col-lg-12 mt-lg-2" css={css`
+                font-size: var(--fs-caption);
+                font-family: var(--ff-body-text);
+                border-radius: 3px;
+            `}>
               VIEW
+              <FaChevronRight className="ms-1" />
             </button>
           </div>
         </div>
