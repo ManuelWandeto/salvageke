@@ -1,11 +1,29 @@
 import styles from "../styles/engine.module.css";
 import Image from "next/image";
+import Styled from '@emotion/styled';
+import {css} from '@emotion/react';
+
+const Label = Styled('span')`
+  font-family: var(--ff-body-text);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+`
+const Value = Styled('span')`
+  font-family: var(--ff-body-text);
+  font-size: var(--fs-default);
+  @media(min-width: 748px) {
+    font-size: var(--fs-caption);
+  }
+  font-weight: 400;
+`;
 const Engine = ({ engine }) => {
   return (
-    <div className="col-12 col-md-6 col-lg-4">
+    <div className="col-12 col-md-6 col-xl-4">
       <div className="card">
         <div className={`${styles.title}`}>
-          <h2 className="text-center">
+          <h2 className="text-center" css={css`
+            font-size: var(--fs-default);
+          `}>
             {`${engine.year} ${engine.make} ${engine.model}`}
           </h2>
         </div>
@@ -24,26 +42,26 @@ const Engine = ({ engine }) => {
         <div className="card-body">
           <div className="row align-items-center justify-content-center">
             <div className="col-3 text-center border-end border-info">
-              <span className={styles.label}>Size</span>
+              <Label>Size</Label>
               <br />
-              {engine.capacity} cc
+              <Value>{engine.capacity} cc </Value>
             </div>
             <div className="col-3 text-center border-end border-info">
-              <span className={styles.label}>Fuel</span>
+              <Label>Fuel</Label>
               <br />
-              {engine.fuelType}
+              <Value>{engine.fuelType} </Value>
             </div>
             <div className="col-3 text-center border-end border-info">
-              <span className={styles.label}>Mileage</span>
+              <Label>Mileage</Label>
               <br />
-              <span className={styles.mileage}>
+              <Value className={styles.mileage}>
                 {engine.mileage}
-              </span>
+              </Value>
             </div>
             <div className="col-3 text-center border-info">
-              <span className={styles.label}>GearBox</span>
+              <Label>GearBox</Label>
               <br />
-              <span>{engine.gearbox}</span>
+              <Value>{engine.gearbox}</Value>
             </div>
           </div>
         </div>
