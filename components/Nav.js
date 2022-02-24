@@ -7,14 +7,16 @@ import { HiInformationCircle } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
 import styles from "../styles/nav.module.css";
 import Link from "next/link";
+import {useRouter} from 'next/router';
 
 const Navigation = ({ selectHandler }) => {
   const NavLink = ({ route, icon, label }) => {
     const Icon = icon;
+    const router = useRouter();
     return (
       <Link href={route}>
         <a
-          className={`${styles.nav_link} active`}
+          className={`${styles.nav_link} ${router.pathname === route ? styles.activeLink : ""}`}
           onClick={selectHandler}
         >
           <span className={`${styles.icon} d-md-none`}>
