@@ -7,12 +7,6 @@
   ) !important;
 }
 
-.label {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .mileage {
   background-color: #000;
   border-radius: 5px;
@@ -21,9 +15,3 @@
   color: white;
 }
 
-@media (min-width: 768px) {
-  .value,
-  .label {
-    font-size: 12px;
-  }
-}
