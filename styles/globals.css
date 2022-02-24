@@ -16,28 +16,66 @@ a {
   box-sizing: border-box;
 }
 
+/* GLOBAL VARIABLES */
+:root {
+  --text-light: #474747;
+  --ff-title: 'Source Serif Pro', serif;
+  --ff-body-text: 'Nunito', sans-serif;
+  --fs-multiplier: 1;
+  --fs-heading: calc(1.25rem * var(--fs-multiplier));
+  --fs-default: calc(1rem * var(--fs-multiplier));
+  --fs-secondary: calc(0.875rem * var(--fs-multiplier));
+  --fs-caption: calc(0.75rem * var(--fs-multiplier));
+}
+
+/* GLOBAL VARIABLES */
+
 /* Shared styles */
+.content {
+  padding-top: 115px;
+}
+
+h1, h2, h3 {
+  font-family: var(--ff-title);
+}
+h1 {
+  font-weight: 700;
+  font-size: var(--fs-heading);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--fs-secondary);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: var(--fs-caption);
+}
+
+p, strong {
+  font-family: var(--ff-body-text);
+}
+
+p {
+  font-weight: 400;
+  font-size: var(--fs-default);
+}
+
+strong {
+  font-size: var(--fs-secondary);
+  color: var(--text-light);
+  font-weight: 550;
+}
 .block {
   padding: 25px;
   box-shadow: inset 0px 0px 8px rgb(0 0 0 / 85%);
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 5px;
-}
-
-.content {
-  padding-top: 115px;
-}
-
-h1 {
-  font-size: 18px;
-  color: #e72727;
-  margin-top: 18px;
-  margin-bottom: 9px;
-}
-strong {
-  color: #444;
-  font-size: 115%;
 }
 .list-group-text-item {
   color: #000;
@@ -46,8 +84,27 @@ strong {
 
 @media (min-width: 768px) {
   .content {
-    padding-top: 193px;
+    padding-top: 206px;
   }
+  :root {
+    --fs-multiplier: 1.125;
+  }
+}
+
+@media(min-width: 992px) {
+  .content {
+    padding-top: 250px;
+  }
+  :root {
+    --fs-multiplier: 1.2;
+  }
+  
+}
+@media(min-width: 1200px) {
+  .content {
+    padding-top: 270px;
+  }
+  
 }
 
 /* Shared styles */
@@ -59,7 +116,7 @@ strong {
   position: relative;
   display: inline-block;
   line-height: 1em;
-  font-size: 2rem;
+  font-size: var(--fs-default);
 }
 .fi:before {
   content: "\00a0";
@@ -95,8 +152,6 @@ div .navbar-dark .navbar-toggler {
   color: white;
   text-decoration: none;
 }
-/* Bootstrap overrides */
-
 @media (min-width: 768px) {
   .navbar-nav li {
     margin: 0;
@@ -104,4 +159,7 @@ div .navbar-dark .navbar-toggler {
   .navbar {
     padding-bottom: 0;
   }
+  
 }
+/* Bootstrap overrides */
+
