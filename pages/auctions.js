@@ -14,7 +14,7 @@ export async function getServerSideProps({ query }) {
   try {
     const page = query.page || 1;
     const limit = 4;
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/auctions?page=${page}&limit=${limit}`);
+    const res = await axios.get(`${process.env.BACKEND_API}/auctions?page=${page}&limit=${limit}`);
     const totalPages = res.data.totalPages;
     return {
       props: { auctions: res.data.results, totalPages: totalPages}

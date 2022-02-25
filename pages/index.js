@@ -7,7 +7,7 @@ import { paginate } from "../utils";
 
 export async function getStaticProps() {
   try {
-    const host = process.env.NEXT_PUBLIC_API;
+    const host = process.env.BACKEND_API;
     const response = await axios.get(
       host + "/auctions?featured"
     );

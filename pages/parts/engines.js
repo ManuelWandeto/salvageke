@@ -9,7 +9,7 @@ import {css} from '@emotion/react';
 
 export async function getStaticProps() {
   try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/engines`);
+    const res = await axios.get(`${process.env.BACKEND_API}/engines`);
     const filterOptions = getSelectOptions(res.data);
     return {
       props: {engines: res.data, selectOptions: filterOptions},
