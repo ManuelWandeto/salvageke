@@ -8,7 +8,7 @@ export async function getStaticProps() {
   try {
     const host = process.env.BACKEND_API;
     const response = await axios.get(
-      host + "/auctions?featured"
+      host + "/auctions?featured=true"
     );
 
     return {
