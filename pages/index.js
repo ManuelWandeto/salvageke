@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import AuctionCarousel from "../components/Carousel";
 import AuctionForm from "../components/AuctionForm.js";
 import { Container } from "react-bootstrap";
