@@ -27,17 +27,20 @@ const Engine = ({ engine }) => {
             {`${engine.year} ${engine.make} ${engine.model}`}
           </h2>
         </div>
-        <Image
-          alt={`${engine.year} ${engine.make} ${engine.model}`}
-          height={452}
-          width={804}
-          //   loader={({ src }) => `${src}`}
-          src={engine.images[0]}
-          objectFit="cover"
-          unoptimized={true}
-          quality={50}
-          layout="responsive"
-        />
+        <div css={css`
+          position: relative;
+          width: 100%;
+        `}>
+          <Image
+            alt={`${engine.year} ${engine.make} ${engine.model}`}
+            src={engine.images[0]}
+            height={452}
+            width={804}
+            objectFit="cover"
+            objectPosition={"center center"}
+            layout="responsive"
+          />
+        </div>
         <hr className="m-0" />
         <div className="card-body">
           <div className="row align-items-center justify-content-center">
