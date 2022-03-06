@@ -18,7 +18,7 @@ const Value = Styled('span')`
 `;
 const Engine = ({ engine }) => {
   return (
-    <div className="col-12 col-md-6 col-xl-4">
+    <div className="col-12 col-md-6">
       <div className="card">
         <div className={`${styles.title}`}>
           <h2 className="text-center" css={css`
