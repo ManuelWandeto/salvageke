@@ -35,8 +35,8 @@ const Auctions = ({ auctions, totalPages }) => {
         className={styles.filter}
       ></Container>
       {auctions ? (
-        <div className={`${styles.items} p-3`}>
-          <Row className="justify-content-around">
+        <div className={`${styles.items} p-3 container-xl`}>
+          <Row className="justify-content-around py-4">
             <strong className="col-3 p-0 text-center align-middle">
               <IoMdCart className={`me-1 ${styles.icon}`} />
               {auctions.totalItems} Items
@@ -48,7 +48,7 @@ const Auctions = ({ auctions, totalPages }) => {
               })
             }} totalPages={totalPages} className="col-6 m-0 justify-content-center"/>
           </Row>
-          <Row>
+          <Row className="g-md-2 gy-2 gy-md-3">
             {auctions.map((item) => (
               <AuctionItem key={item._id} item={item} />
             ))}
