@@ -5,25 +5,28 @@ import axios from "axios";
 import Filters from "../../components/EngineFilterForm";
 import { getSelectOptions } from "../../utils";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Router from 'next/router';
+import Pagination  from "../../components/Pagination";
 import {css} from '@emotion/react';
 
-export async function getStaticProps() {
+export async function getServerSideProps({query}) {
   try {
-    const res = await axios.get(`${process.env.BACKEND_API}/engines`);
-    const filterOptions = getSelectOptions(res.data);
+    const page = query.page || 1;
+    const limit = 4;
+    const res = await axios.get(`${process.env.BACKEND_API}/engines?page=${page}&limit=${limit}`);
+    const filterOptions = getSelectOptions(res.data.results);
     return {
-      props: {engines: res.data, selectOptions: filterOptions},
-      revalidate: 60
+      props: {engines: res.data.results, selectOptions: filterOptions, totalPages: res.data.totalPages}
     }
   } catch (error) {
-    console.log(`error occured fetching engines in getStaticProps: ${error}`);
+    console.log(`error occured fetching engines in getServerSideProps: ${error}`);
     return {
       props: {engines: null, selectOptions: null}
     } 
   }
 
 }
-const Engines = ({engines, selectOptions}) => {
+const Engines = ({engines, selectOptions, totalPages}) => {
   const [filterToggle, toggleFilter] = useState(false);
   return engines ? (
     <section className="content container-md">
@@ -35,24 +38,32 @@ const Engines = ({engines, selectOptions}) => {
           {engines.length} Engines
         </strong>
       </Row>
-      <button
-        className="btn btn-warning mb-3"
-        onClick={() => toggleFilter((toggle) => !toggle)}
-        aria-controls="filter"
-        aria-expanded={filterToggle}
-        css={css`
-          font-family: var(--ff-body-text);
-          font-size: var(--fs-caption);
-          font-weight: 600;
-        `}
-      >
-        Show filter options
-        {filterToggle ? (
-          <FaChevronUp className="ms-2" />
-        ) : (
-          <FaChevronDown className="ms-2" />
-        )}
-      </button>
+      <Row className="justify-content-between align-items-center my-4 mx-auto">
+        <button
+          className="btn btn-warning col-5 d-lg-none"
+          onClick={() => toggleFilter((toggle) => !toggle)}
+          aria-controls="filter"
+          aria-expanded={filterToggle}
+          css={css`
+            font-family: var(--ff-body-text);
+            font-size: var(--fs-caption);
+            font-weight: 600;
+          `}
+        >
+          Show filter options
+          {filterToggle ? (
+            <FaChevronUp className="ms-2" />
+          ) : (
+            <FaChevronDown className="ms-2" />
+          )}
+        </button>
+        <Pagination onPageChange={(activePage) => {
+          Router.push({
+            pathname: '/parts/engines',
+            query: {page: activePage}
+          })
+        }} totalPages={totalPages} className="col m-0 justify-content-end p-0"/>
+      </Row>
       <Collapse in={filterToggle} className="mb-4">
         <div id="filter">
           <h2 style={{ fontSize: 21, fontWeight: 600 }}>
