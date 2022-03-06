@@ -1,6 +1,6 @@
 import { Row, Collapse } from "react-bootstrap";
 import Engine from "../../components/Engine";
-import {useState } from "react";
+import {useState, useEffect } from "react";
 import axios from "axios";
 import Filters from "../../components/EngineFilterForm";
 import { getSelectOptions } from "../../utils";
@@ -28,9 +28,18 @@ export async function getServerSideProps({query}) {
 }
 const Engines = ({engines, selectOptions, totalPages}) => {
   const [filterToggle, toggleFilter] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(0);
+
+  useEffect(() => {
+    setViewportWidth(window.innerWidth);
+    const onResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  
   return engines ? (
     <section className="content container-md">
-      <Row className="justify-content-around align-items-center my-4">
+      <Row className="justify-content-around align-items-center my-4 my-xl-3">
         <h1 className="col-6 align-middle m-0">
           Buy Used Vehicle engines
         </h1>
@@ -38,9 +47,9 @@ const Engines = ({engines, selectOptions, totalPages}) => {
           {engines.length} Engines
         </strong>
       </Row>
-      <Row className="justify-content-between align-items-center my-4 mx-auto">
+      <Row className="justify-content-between align-items-center my-4 my-xl-0 mx-auto">
         <button
-          className="btn btn-warning col-5 d-lg-none"
+          className="btn btn-warning col-md-4 col-sm-5 d-xl-none"
           onClick={() => toggleFilter((toggle) => !toggle)}
           aria-controls="filter"
           aria-expanded={filterToggle}
@@ -64,20 +73,22 @@ const Engines = ({engines, selectOptions, totalPages}) => {
           })
         }} totalPages={totalPages} className="col m-0 justify-content-end p-0"/>
       </Row>
-      <Collapse in={filterToggle} className="mb-4">
-        <div id="filter">
-          <h2 style={{ fontSize: 21, fontWeight: 600 }}>
-            Filter the list
-          </h2>
-          {selectOptions && (
-            <Filters options={selectOptions} />
-          )}
+      <Row className="justify-content-between g-0">
+        <Collapse in={filterToggle || (viewportWidth >= 1200)} className="mb-4 col-12 col-xl-4" appear >
+          <div id="filter">
+            <h2 css={css`font-size: var(--fs-default);`}>
+              Filter the list
+            </h2>
+            {selectOptions && (
+              <Filters options={selectOptions} />
+            )}
+          </div>
+        </Collapse>
+        <div className="col-12 col-xl-8 row g-3">
+          {engines.map((engine) => (
+            <Engine key={engine._id} engine={engine} />
+          ))}
         </div>
-      </Collapse>
-      <Row className="g-md-2 gy-4 gy-md-4">
-        {engines.map((engine) => (
-          <Engine key={engine._id} engine={engine} />
-        ))}
       </Row>
     </section>
   ) : (
