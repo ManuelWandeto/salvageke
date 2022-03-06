@@ -59,7 +59,6 @@ const AuctionForm = () => {
       >
       <div className="row">
       <Form.Group
-        controlId="vehicle registration input"
         className={`mb-3 d-block mx-auto col-sm-6 col-xl-3`}
         css={formGroup}
       >
