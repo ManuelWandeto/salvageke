@@ -17,7 +17,6 @@ COPY --from=build --chown=node:node /build/package*.json ./
 COPY --from=build --chown=node:node /build/.next ./.next
 COPY --from=build --chown=node:node /build/node_modules ./node_modules
 COPY --from=build --chown=node:node /build/.env.production ./
-RUN npm install sharp
 EXPOSE 3000
 
 CMD [ "pm2-runtime", "npm", "--", "start" ]
